@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/jqueryScroll.js"></script>
+<title>滚动</title>
+<style type="text/css">
+body{font-size:12px;font-family:verdana,arial;width:80%;margin:10px auto;background:#fafafa;padding:10px;border:solid 20px #aaa;}
+a{color:blue;}
+ul{list-style:none;margin:0;padding:0;}
+p{margin-bottom:4px;margin-top:13px;}
+ul.scroll{margin:0;padding:0;list-style:none;overflow:hidden;}
+ul.scroll li{height:20px;background:#eee;line-height:20px;overflow:hidden;}
+div.style{width:50%;}
+div.style ul.scroll{height:180px;border:solid 1px red;color:#fff;}
+	div.style ul.scroll li{height:180px;line-height:180px;text-align:center;font-size:190%;font-weight:bold;}
+
+/*这个是公用样式，必须要有*/
+	div.scrollGallery{position:relative;}
+		div.scrollGallery.fixedLeft ul.scrollNum{left:5px;bottom:5px;width:20px;}
+		div.scrollGallery ul.scrollNum{position:absolute;right:5px;bottom:5px;}
+			div.scrollGallery ul.scrollNum li{float:left;color:#fff;text-align:center;line-height:16px;width:16px;height:16px;font-family:Arial;font-size:12px;cursor:pointer;margin:1px;border:1px solid #707070;background-color:#060a0b;margin-left:4px;}
+			div.scrollGallery ul.scrollNum li.current{line-height:20px;width:20px;height:20px;font-size:14px;border:0;background-color:#ce0609;margin-top:0px;font-weight: bold;}
+		div.scrollGallery.fixedLeft ul.scrollNum li{float:none;margin-left:auto;margin-top:4px;}
+	/*上一个或下一个的样式*/
+	ul.prevNext{position:absolute;right:10px;top:10px;}
+		ul.prevNext li{float:left;padding:2px 6px;border:solid 1px #fff;background:#eee;margin-left:12px;cursor:pointer;}
+/*全局样式结束*/
+</style>
+</head>
+<body>
+<!--<div class="scrollGallery style">
+	<ul class="scroll" delay="2200" step="180">
+		<li style="background:#060;">春光明媚！</li>
+		<li style="background:#a00;">夏日当空！</li>
+		<li style="background:#990;">秋高气爽！</li>
+		<li style="background:#cc0;">冬日暖阳！</li>
+	</ul>
+</div>-->
+<hr />
+<p>其实切换样式，就是添加了一个fixedLeft的css规则，用来改变那排数字的布局。</p>
+<div class="scrollGallery photo style">
+	<ul class="scroll" delay="1200" step="180">
+		<li style="background:#050;">星期一！</li>
+		<li style="background:#005;">星期二！</li>
+		<li style="background:#500;">星期三！</li>
+		<li style="background:#550;">星期四！</li>
+		<li style="background:#055;">星期五！</li>
+		<li style="background:#505;">星期六！</li>
+		<li style="background:#555;">星期日！</li>
+	</ul>
+	<ul class="prevNext">
+		<li class="prev">上一个</li>
+		<li class="next">下一个</li>
+		<!--<li onclick="$($(this)[0].parentNode.parentNode).toggleClass('fixedLeft')">切换样式</li>-->
+	</ul>
+</div>
+<hr />
+<!--<div class="scrollGallery">
+	<p>
+		如果delay的值为0，那么它将不会滚动！
+		<span class="prevNext">	<input type="button" class="prev" value="上" /> <input type="button" class="next" value="下" /></span>
+	</p>
+	<ul class="scroll" delay="0" step="20" style="height:20px;">
+		<li>旅行者离开地球</li>
+		<li>旅行者到达土星</li>
+		<li>旅行者到达土卫六</li>
+		<li>旅行者2号紧随其后</li>
+		<li>旅行者2号执行剩下的任务</li>
+		<li>旅行者1好继续飞行</li>
+		<li>旅行者1号是离地球最远的人造物件</li>
+		<li>旅行者1号处于太阳系和星际介质之间</li>
+	</ul>
+</div>
+<hr />
+<div class="scrollGallery">
+	<ul class="scroll" delay="2500" step="20" style="height:60px;">
+		<li><a href="#">旅行者离开地球</a></li>
+		<li><a href="#">旅行者到达土星</a></li>
+		<li><a href="#">旅行者到达土卫六</a></li>
+		<li><a href="#">旅行者2号紧随其后</a></li>
+		<li><a href="#">旅行者2号执行剩下的任务</a></li>
+		<li><a href="#">旅行者1好继续飞行</a></li>
+		<li><a href="#">旅行者1号是离地球最远的人造物件</a></li>
+		<li><a href="#">旅行者1号处于太阳系和星际介质之间</a></li>
+	</ul>
+</div>
+<hr />
+<div class="scrollGallery">
+	<ul class="scroll" delay="1000" step="40" style="height:40px;">
+		<li><a href="#">旅行者离开地球</a></li>
+		<li><a href="#">旅行者到达土星</a></li>
+		<li><a href="#">旅行者到达土卫六</a></li>
+		<li><a href="#">旅行者2号紧随其后</a></li>
+		<li><a href="#">旅行者2号执行剩下的任务</a></li>
+		<li><a href="#">旅行者1好继续飞行</a></li>
+		<li><a href="#">旅行者1号是离地球最远的人造物件</a></li>
+		<li><a href="#">旅行者1号处于太阳系和星际介质之间</a></li>
+	</ul>
+</div>-->
+</body>
+</html>
